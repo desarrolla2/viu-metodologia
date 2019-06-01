@@ -1,28 +1,58 @@
-# Información
+# Introduccion
 
 Este es un ejercicio realizado para la asignatura de **metodología de la programación** de la **Universidad Internacional de Valencia**.
 
 Los requisitos del ejercício pueden encontrarse en la carpeta doc. Cada unidad competencial tiene sus propios requisitos y su rubrica.
 
-## Módulo Logging
+Para esta versión del programa he decidido utilizar el framework de desarrollo web [django](https://www.djangoproject.com/)
 
-Me hubiera gustado tener mejor control de la salida del programa.
+# Instalación y ejecución del programa
 
-- Permitir la configuración del nivel de verbosidad.
-- Enviar la salida a un fichero de log.
+Para ejecutar este programa es necesario seguir las siguientes instrucciones. Estas instrucciones están pensadas para ser
+ejecutadas en un sistema Linux, concretamente en un ubuntu 18.04.
 
-Para ello estube echando un vistazo a la librería [login](https://docs.python.org/3/library/logging.html)
+El sistema debe tener instalado python3 para la ejecución del entorno y pip3 para la instalación de dependencias. 
+También será necesario disponer de una base de datos mysql.
 
-Ante la falta de tiempo disponible, tube que utilizar la la función `print`, pero incrementé el nivel de verbosidad,
-tal y cómo me indicó el profesor.
+Lo primero es entrar en el virtual env donde tenemos disponible algunas librerías necesarias, para ello desde la raiz del
+proyecto ejecutamos:
 
-## Módulo de lectura y escritura
+```bash 
+source env/bin/activate
+```
 
-Los datos se leeran y escribirán en el directorio `src/data`. Los requisitos indicaban que deberían guardarse en la 
-misma carpeta que el fichero, pero se ha optado por utilizar un directorio por ser más ordenado.
+Luego debemos configurar la base de datos, para ello editaremos el fichero `project/settings.py`' en la sección de databases
 
-Los datos se guadarán en formato json. Los requisitos indicaban que debería utilizarse el formato csv, pero json es un 
-formato más sencillo de leer y de escribir, por lo que se ha optado por el para la realización del ejercicio.
+```bash 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'orchids',
+        'USER': 'orchids',
+        'PASSWORD': 'HFatmTWMvc6D0xUV;&',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+```
 
-Algunos datos no son guardados como es la lista de orquideas vendidas y destruidas, ya que queda fuera del alcance del
-ejercício.
+Debes indicar los datos de conexión a tu base de datos.
+
+**Nota**: *Normalmente es una mala practica publicar passwords o incluirlas en el repositorio tal y como yo he hecho aquí, pero al ser
+simplemente una practica he decidido hacerlos así por comodidad*
+
+El siguiente paso es generar la base de datos, para ello debemos ejecutar
+
+```bash
+python3 manage.py migrate
+```
+
+Ya tenemos todo listo, ahora sólo necesitamos levantar el servidor de pruebas, con el siguiente comando
+
+```bash
+python3 manage.py runserver
+```
+
+Abre un navegador y entra a [orchid manager](http://localhost:8000/)
+
+
