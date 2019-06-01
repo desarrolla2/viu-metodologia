@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load extras %}
+{% block content %}
+<div class="row">
+    {% for greenhouse in greenhouses %}
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <a href="#">
+                <img class="card-img-top" src="/static/image/greenhouse/{{ greenhouse.id|modulus }}.jpg" alt="">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="#">#{{ greenhouse.name }}</a>
+                </h4>
+                <p class="card-text">
+                <ul style="list-style: none; padding: 0;">
+                    <li><strong>Weather</strong>: {{ greenhouse.weather }}</li>
+                    <li><strong>Temperature</strong>: {{ greenhouse.temperature }}</li>
+                </ul>
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <strong>Available/Capacity</strong>:
+                    {{ greenhouse.available }}/{{ greenhouse.capacity }}
+                </small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{%  endblock %}

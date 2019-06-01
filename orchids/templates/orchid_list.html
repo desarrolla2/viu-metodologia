@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load extras %}
+{% block content %}
+<div class="row">
+    {% for orchid in orchids %}
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <a href="#">
+                <img class="card-img-top" src="/static/image/orchid/{{ orchid.id|modulus }}.jpg" alt="">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="#">#{{ orchid.name }}</a>
+                </h4>
+                <p class="card-text">
+                <ul style="list-style: none; padding: 0;">
+                    <li><strong>Preferred weather</strong>: {{ orchid.preferred_weather }}</li>
+                    <li>
+                        <strong>Preferred temperature</strong>:
+                        {{ orchid.min_temperature }}/{{ orchid.max_temperature }}
+                    </li>
+                    <li><strong>Days in andes / coast</strong>:
+                        {{ orchid.current_days_in_andes }}/{{ orchid.current_days_in_coast }}
+                    </li>
+                </ul>
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">STATE: {{ orchid.state }}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{%  endblock %}

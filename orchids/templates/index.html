@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row align-items-center my-5">
+    <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="/static/image/home.jpg" alt="">
+    </div>
+    <div class="col-lg-5">
+        <h1 class="font-weight-light">Orchid Manager</h1>
+        <p>
+            The Orchid Manager is an web application that allows the management of batches of orchids, greenhouses and
+            simulations on their evolution.
+        </p>
+        <p>
+            This application was developed during the course methodology of the computer engineering degree program of
+            the International University of Valencia.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Greenhouses</h2>
+                <p class="card-text">
+                    A greenhouse is a structure with walls and roof made chiefly of transparent material, such as glass,
+                    in which plants requiring regulated climatic conditions are grown.
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group">
+                    <a href="{% url 'greenhouse_list' %}" class="btn btn-primary btn-sm">
+                        <i class="fas fa-list"></i>
+                        See list ({{greenhouses}})</a>
+                    <a href="{% url 'greenhouse_create' %}" class="btn btn-success btn-sm">
+                        <i class="fas fa-plus-circle"></i>
+                        Create new</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Orchids</h2>
+                <p class="card-text">The Orchidaceae are a diverse and widespread family of flowering plants, with
+                    blooms that are often colourful and fragrant, commonly known as the orchid family.
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group">
+                    <a href="{% url 'orchid_list' %}" class="btn btn-primary btn-sm">
+                        <i class="fas fa-list"></i>
+                        See list ({{orchids}})</a>
+                    <a href="{% url 'orchid_create' %}" class="btn btn-success btn-sm">
+                        <i class="fas fa-plus-circle"></i>
+                        Create new</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-group float-left">
+    <a href="{% url 'simulate' %}" class="btn btn-success">
+        <i class="fas fa-cogs"></i>
+        Simulate
+    </a>
+</div>
+<div class="btn-group float-right">
+    <a href="{% url 'random' %}" class="btn btn-warning">
+        <i class="fas fa-random"></i>
+        Generate random elements
+    </a>
+    <a href="{% url 'clear' %}" class="btn btn-danger">
+        <i class="fas fa-trash-alt"></i>
+        Clear database
+    </a>
+</div>
+<div style="clear:all"></div>
+{% endblock %}
