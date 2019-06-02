@@ -2,6 +2,7 @@ from random import randint, choice
 
 from django.contrib import messages
 from django.shortcuts import render, redirect
+
 from orchids.forms import OrchidForm, GreenhouseForm, NumberForm
 from orchids.models import Vars, Orchid, Greenhouse, WEATHER_ANDES, WEATHER_COAST, STATE_NOT_ASSIGNED, STATE_ASSIGNED, \
     STATE_DESTROYED, STATE_SOLD, VARS_DAY
@@ -35,11 +36,11 @@ def random(request):
                                            randint(10, 20), randint(100, 1000))
         model_instance.save()
 
-    orchids = randint(10, 20)
+    orchids = randint(6, 10)
     for x in range(0, orchids):
         model_instance = Orchid.create(randint(100000, 999999), choice([WEATHER_ANDES, WEATHER_COAST]),
-                                       randint(10, 200), randint(5, 15), randint(16, 25), randint(1, 10),
-                                       randint(1, 10))
+                                       randint(10, 200), randint(5, 15), randint(16, 25), randint(1, 6),
+                                       randint(1, 6))
         model_instance.save()
 
     messages.add_message(request, messages.INFO, '%d random greenhouses created successfully.' % greenhouses)
@@ -59,8 +60,8 @@ def clear(request):
     day.value = 1
     day.save()
 
-    messages.add_message(request, messages.INFO, '%d random greenhouses deleted successfully.' % greenhouses)
-    messages.add_message(request, messages.INFO, '%d random orchids deleted successfully.' % orchids)
+    messages.add_message(request, messages.INFO, '%d greenhouses deleted successfully.' % greenhouses)
+    messages.add_message(request, messages.INFO, '%d orchids deleted successfully.' % orchids)
 
     return redirect('index')
 
@@ -297,6 +298,7 @@ def __simulate_day(sections):
         sections.append({'name': 'Day %d: updating orchids data' % day.value, 'logs': [
             {'message': 'Nothing to do.', 'class': ''}
         ]})
+        __simulate_increment_day()
 
         return sections
 

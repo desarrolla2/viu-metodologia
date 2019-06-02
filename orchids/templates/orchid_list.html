@@ -15,13 +15,23 @@
                 </h4>
                 <p class="card-text">
                 <ul style="list-style: none; padding: 0;">
+                    <li><strong>Greenhose</strong>:
+                        {% if orchid.greenhouse %}
+                        #{{ orchid.greenhouse.name }} <i>{{orchid.greenhouse.weather }}</i>
+                        {% else %}
+                        ~
+                        {% endif %}
+                    </li>
+                    <li><strong>Number of plants</strong>:
+                        {{ orchid.number }}
+                    </li>
                     <li><strong>Preferred weather</strong>: {{ orchid.preferred_weather }}</li>
                     <li>
                         <strong>Preferred temperature</strong>:
-                        {{ orchid.min_temperature }}/{{ orchid.max_temperature }}
+                        {{ orchid.min_temperature }}-{{ orchid.max_temperature }}
                     </li>
                     <li><strong>Days in andes / coast</strong>:
-                        {{ orchid.current_days_in_andes }}/{{ orchid.current_days_in_coast }}
+                        {{ orchid.current_days_in_andes }} / {{ orchid.current_days_in_coast }}
                     </li>
                 </ul>
                 </p>

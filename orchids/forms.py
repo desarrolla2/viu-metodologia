@@ -1,11 +1,12 @@
 from django import forms
 from django.core.validators import MinValueValidator, MaxValueValidator
+
 from orchids.models import Orchid, Greenhouse
 
 
 class NumberForm(forms.Form):
     number = forms.IntegerField(label='Number of days to simulate', initial=1,
-                                validators=[MinValueValidator(0), MaxValueValidator(5)])
+                                validators=[MinValueValidator(0), MaxValueValidator(20)])
 
 
 class OrchidForm(forms.ModelForm):
