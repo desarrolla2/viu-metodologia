@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dp9t7ef8uz5n404!&uw=txa9_1vvih8+ixt$hqhtx%yfq4(rga'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'metodologia.viu.desarrolla2.com']
 
 # Application definition
 
