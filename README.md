@@ -59,14 +59,14 @@ Abre un navegador y entra a [orchid manager](http://localhost:8000/)
 
 He realizado una explicación funcional en estos videos.
 
-- [Explicacióin funcional 1](https://www.youtube.com/watch?v=SSYgWzbgX-s&feature=youtu.be)
-- [Explicacióin funcional 2](https://www.youtube.com/watch?v=mFdcs0_jQCY&feature=youtu.be)
+- [Explicación funcional 1](https://www.youtube.com/watch?v=SSYgWzbgX-s&feature=youtu.be)
+- [Explicación funcional 2](https://www.youtube.com/watch?v=mFdcs0_jQCY&feature=youtu.be)
 
 # Explicación técnica
 
 He realizado una breve explicación técnica en este video.
 
-- [Explicacióin técnica](https://www.youtube.com/watch?v=6cqpwb8Vh0I&feature=youtu.be)
+- [Explicación técnica](https://www.youtube.com/watch?v=6cqpwb8Vh0I&feature=youtu.be)
 
 
 
