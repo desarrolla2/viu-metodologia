@@ -1,4 +1,4 @@
-# Introduccion
+# Introducción
 
 Este es un ejercicio realizado para la asignatura de **metodología de la programación** de la **Universidad Internacional de Valencia**.
 
